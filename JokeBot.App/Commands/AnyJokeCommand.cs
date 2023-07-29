@@ -18,10 +18,12 @@ public class AnyJokeCommand : CommandBase, ICommandHandler
         switch (response)
         {
             case var a when (response.Data.Type == "single"):
+                await ReplyAsync($"**Type: **{response.Data.Category}{Environment.NewLine}");
                 await ReplyAsync($"**Joke:**{Environment.NewLine}");
                 await ReplyAsync(response.Data.Joke);
                 break;
             case var b when (response.Data.Type == "twopart"):
+                await ReplyAsync($"**Type:**{response.Data.Category}{Environment.NewLine}");
                 var joke =
                     $"**Setup:**{Environment.NewLine}{response.Data.SetUp}{Environment.NewLine}{Environment.NewLine}" +
                     $"**Delivery:**{Environment.NewLine}{response.Data.Delivery}";
