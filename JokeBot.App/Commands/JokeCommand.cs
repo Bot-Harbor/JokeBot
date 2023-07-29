@@ -17,10 +17,13 @@ public class JokeCommand : CommandBase
         switch (response)
         {
             case var a when (response.Data.Type == "single"):
+                await ReplyAsync($"**Joke:**{Environment.NewLine}");
                 await ReplyAsync(response.Data.Joke);
                 break;
             case var b when (response.Data.Type == "twopart"):
-                var joke = $"{response.Data.SetUp}\n{response.Data.Delivery}";
+                var joke =
+                    $"**Setup:**{Environment.NewLine}{response.Data.SetUp}{Environment.NewLine}" +
+                    $"**Delivery:**{Environment.NewLine}{response.Data.Delivery}";
                 await ReplyAsync(joke);
                 break;
             case var c when (response.Data == null || string.IsNullOrEmpty(response.Data.Joke) ||
