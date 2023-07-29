@@ -1,18 +1,18 @@
 ﻿using Discord.Commands;
+using JokeBot.Interfaces;
 using JokeBot.Models;
 using RestSharp;
-using RestRequest = Discord.Net.Queue.RestRequest;
 
 namespace JokeBot.Commands;
 
-public class JokeCommand : CommandBase
+public class ProgrammingJokeCommand : CommandBase, ICommandHandler
 {
-    [Command("joke")]
+    [Command("programming joke")]
     public async Task HandleCommandAsync()
     {
-        var restClient = new RestClient();
-        var request = new RestSharp.RestRequest("https://v2.jokeapi.dev/joke/programming");
-        var response = await restClient.ExecuteAsync<JokeModel>(request);
+        RestClient = new RestClient();
+        Request = new RestRequest("https://v2.jokeapi.dev/joke/programming");
+        var response = await RestClient.ExecuteAsync<JokeModel>(Request);
 
         switch (response)
         {
@@ -22,7 +22,7 @@ public class JokeCommand : CommandBase
                 break;
             case var b when (response.Data.Type == "twopart"):
                 var joke =
-                    $"**Setup:**{Environment.NewLine}{response.Data.SetUp}{Environment.NewLine}" +
+                    $"**Setup:**{Environment.NewLine}{response.Data.SetUp}{Environment.NewLine}{Environment.NewLine}" +
                     $"**Delivery:**{Environment.NewLine}{response.Data.Delivery}";
                 await ReplyAsync(joke);
                 break;
