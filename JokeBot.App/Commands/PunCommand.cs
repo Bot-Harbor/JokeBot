@@ -5,14 +5,14 @@ using RestSharp;
 
 namespace JokeBot.Commands;
 
-public class ProgrammingJokeCommand : CommandBase, ICommandHandler
+public class PunCommand : CommandBase, ICommandHandler
 {
-    [Command("programming")]
+    [Command("pun")]
     public async Task HandleCommandAsync()
     {
         RestClient = new RestClient();
         Request = new RestRequest(
-            "https://v2.jokeapi.dev/joke/programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit");
+            "https://v2.jokeapi.dev/joke/pun?blacklistFlags=nsfw,religious,political,racist,sexist,explicit");
         var response = await RestClient.ExecuteAsync<JokeModel>(Request);
 
         switch (response)

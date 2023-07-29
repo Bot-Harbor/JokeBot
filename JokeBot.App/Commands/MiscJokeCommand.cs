@@ -11,7 +11,8 @@ public class MiscJokeCommand : CommandBase, ICommandHandler
     public async Task HandleCommandAsync()
     {
         RestClient = new RestClient();
-        Request = new RestRequest("https://v2.jokeapi.dev/joke/misc?blacklistFlags=nsfw,racist,sexist,explicit");
+        Request = new RestRequest(
+            "https://v2.jokeapi.dev/joke/misc?blacklistFlags=nsfw,religious,political,racist,sexist,explicit");
         var response = await RestClient.ExecuteAsync<JokeModel>(Request);
 
         switch (response)
