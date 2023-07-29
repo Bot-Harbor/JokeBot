@@ -1,9 +1,8 @@
 ﻿using Discord.Commands;
-using JokeBot.Interfaces;
 
 namespace JokeBot.Commands;
 
-public class HelpCommand : CommandBase, ICommandHandler
+public class HelpCommand : CommandBase
 {
     [Command("help")]
     public async Task HandleCommandAsync()

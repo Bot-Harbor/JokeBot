@@ -1,9 +1,8 @@
 ﻿using Discord.Commands;
-using JokeBot.Interfaces;
 
 namespace JokeBot.Commands;
 
-public class PingCommand : CommandBase, ICommandHandler
+public class PingCommand : CommandBase
 {
     [Command("ping")]
     public async Task HandleCommandAsync()

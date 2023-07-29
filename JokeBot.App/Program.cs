@@ -1,9 +1,7 @@
 ﻿using System.Reflection;
 using Discord;
 using Discord.Commands;
-using Discord.Net.Queue;
 using Discord.WebSocket;
-using JokeBot.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace JokeBot.App
