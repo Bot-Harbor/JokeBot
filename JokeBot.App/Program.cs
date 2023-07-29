@@ -56,7 +56,6 @@ namespace JokeBot.App
             if (message.HasStringPrefix("jokebot ", ref argPos))
             {
                 await Execute();
-                return;
             }
             
             async Task Execute()
