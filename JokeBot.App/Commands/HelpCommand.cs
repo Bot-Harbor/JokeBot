@@ -10,6 +10,7 @@ public class HelpCommand : CommandBase, ICommandHandler
     {
         await ReplyAsync($"**The following commands can be used for Joke Bot:**{Environment.NewLine}" +
                          $"  • **ping** - Pings the Discord channel{Environment.NewLine}" +
-                         $"  • **joke** - Displays either a single or two-part joke{Environment.NewLine}");
+                         $"  • **programming** - Displays a programming joke{Environment.NewLine}" +
+                         $"  • **misc** - Displays a miscellaneous joke{Environment.NewLine}");
     }
 }

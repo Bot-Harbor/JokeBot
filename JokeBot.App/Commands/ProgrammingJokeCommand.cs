@@ -7,11 +7,11 @@ namespace JokeBot.Commands;
 
 public class ProgrammingJokeCommand : CommandBase, ICommandHandler
 {
-    [Command("programming joke")]
+    [Command("programming")]
     public async Task HandleCommandAsync()
     {
         RestClient = new RestClient();
-        Request = new RestRequest("https://v2.jokeapi.dev/joke/programming");
+        Request = new RestRequest("https://v2.jokeapi.dev/joke/programming?blacklistFlags=nsfw,racist,sexist,explicit");
         var response = await RestClient.ExecuteAsync<JokeModel>(Request);
 
         switch (response)
