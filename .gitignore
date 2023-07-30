@@ -260,9 +260,6 @@ paket-files/
 # Bot Token
 Token.cs
 
-# JavaScript File
-api-key.js
-
 # CodeRush
 .cr/
 
