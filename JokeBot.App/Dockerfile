@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Copy csproj and restore as distinct layers
 COPY *.csproj ./
-RUN donet restore 
+RUN dotnet restore
 
 # Copy everything else and build
 COPY ../ ./
