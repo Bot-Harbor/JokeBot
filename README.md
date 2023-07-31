@@ -38,14 +38,14 @@ Want to pull the latest Docker image to host your own instance of JokeBot?
 
 ## Screenshots
 
-![image](/Documentation/about.JPG)
+![image](/Documentation/about.png)
 
-![image](/Documentation/help.JPG)
+![image](/Documentation/help.png)
 
-![image](/Documentation/ping.JPG)
+![image](/Documentation/ping.png)
 
-![image](/Documentation/any.JPG)
+![image](/Documentation/any.png)
 
-![image](/Documentation/christmas.JPG)
+![image](/Documentation/christmas.png)
 
-![image](/Documentation/misc.JPG)
+![image](/Documentation/misc.png)
