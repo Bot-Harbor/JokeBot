@@ -1,5 +1,5 @@
 # JokeBot
-A Discord bot built with C# to utilize the Joke API.
+A Discord bot built with C# and Docker to utilize the Joke API.
 
 Built with .NET Core 3.1 and Docker.
 
