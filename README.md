@@ -15,12 +15,6 @@ Want to invite JokeBot to your own Discord server?
 
 [https://discord.com/api/oauth2/authorize?client_id=1134585389714260050&permissions=8&scope=bot](https://discord.com/api/oauth2/authorize?client_id=1134585389714260050&permissions=8&scope=bot)
 
----
-
-Want to pull the latest Docker image to host your own instance of JokeBot?
-
-[https://hub.docker.com/r/kalebg08/jokebot](https://hub.docker.com/r/kalebg08/jokebot)
-
 ## Commands
 | Command | Description |
 | ------------- | ------------- |
