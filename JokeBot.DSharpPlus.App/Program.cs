@@ -1,3 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using JokeBot.DSharpPlus.App;
 
-Console.WriteLine("Hello, World!");
+var bot = new Bot();
+
+await bot.RunBotAsync();
