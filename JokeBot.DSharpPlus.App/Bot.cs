@@ -37,5 +37,6 @@ public class Bot
         slashCommands.RegisterCommands<DarkJokeCommand>();
         slashCommands.RegisterCommands<PunCommand>();
         slashCommands.RegisterCommands<SpookyJokeCommand>();
+        slashCommands.RegisterCommands<ChristmasJokeCommand>();
     }
 }
