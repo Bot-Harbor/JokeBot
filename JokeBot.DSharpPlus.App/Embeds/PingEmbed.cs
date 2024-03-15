@@ -11,7 +11,7 @@ public class PingEmbed
         var userName = context.User.Username;
         var guildName = context.Guild.Name;
         var guildIcon = context.Guild.GetIconUrl(ImageFormat.Png);
-        var botIcon = context.Client.CurrentUser.GetAvatarUrl(ImageFormat.Png);
+        var thumbnail = "https://img.favpng.com/24/2/15/ping-pong-screenshot-amazing-free-game-app-store-png-favpng-gEzBU9vdN8i74yF2q53enebeE.jpg";
 
         var embed = new DiscordEmbedBuilder()
         {
@@ -25,7 +25,9 @@ public class PingEmbed
             },
             Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail()
             {
-                Url = botIcon
+                Url = thumbnail,
+                Width = 420,
+                Height = 420
             }
         };
 

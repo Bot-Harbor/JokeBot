@@ -12,4 +12,8 @@
       <PackageReference Include="DSharpPlus.SlashCommands" Version="5.0.0-nightly-02167" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\JokeBot.Models\JokeBot.Models.csproj" />
+    </ItemGroup>
+
 </Project>

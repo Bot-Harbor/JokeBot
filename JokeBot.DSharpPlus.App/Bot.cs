@@ -1,7 +1,8 @@
 ﻿using DSharpPlus;
 using DSharpPlus.SlashCommands;
-using JokeBot.DSharpPlus.App.Commands;
 using JokeBot.DSharpPlus.App.Secrets;
+using JokeBot.DSharpPlus.App.Slash_Commands;
+using JokeBot.DSharpPlus.App.Slash_Commands.Jokes;
 using Microsoft.Extensions.Logging;
 
 namespace JokeBot.DSharpPlus.App;
@@ -29,7 +30,7 @@ public class Bot
     private void SlashCommands()
     {
         var slashCommands = Client.UseSlashCommands();
-        
         slashCommands.RegisterCommands<PingCommand>();
+        slashCommands.RegisterCommands<AnyJokeCommand>();
     }
 }

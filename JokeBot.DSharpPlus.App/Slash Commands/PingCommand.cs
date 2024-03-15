@@ -1,7 +1,7 @@
 ﻿using DSharpPlus.SlashCommands;
 using JokeBot.DSharpPlus.App.Embeds;
 
-namespace JokeBot.DSharpPlus.App.Commands;
+namespace JokeBot.DSharpPlus.App.Slash_Commands;
 
 public class PingCommand : ApplicationCommandModule
 {
