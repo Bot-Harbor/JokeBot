@@ -32,5 +32,6 @@ public class Bot
         var slashCommands = Client.UseSlashCommands();
         slashCommands.RegisterCommands<PingCommand>();
         slashCommands.RegisterCommands<AnyJokeCommand>();
+        slashCommands.RegisterCommands<ProgrammingJokeCommand>();
     }
 }

@@ -35,7 +35,7 @@ public class JokeEmbed
         {
             case "single":
                 embed.Title = $"Category  -  {category}";
-                embed.Description = joke.Joke;
+                embed.Description = $"**Joke:** {joke.Joke}";
                 return embed;
             case "twopart":
                 embed.Title = $"Category  -  {category}";
