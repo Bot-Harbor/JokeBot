@@ -12,9 +12,8 @@ public class AnyJokeCommand : ApplicationCommandModule
         try
         {
             var jokeEmbed = new JokeEmbed();
-            var thumbnail =
-                "https://images.twinkl.co.uk/tw1n/image/private/s--2Ugg-lBJ--/q_auto:eco,w_740/v1/u/event/image/%5Bjack%5D-event-page-tell-a-joke-day-1688473899.png";
-            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Any", DiscordColor.White, thumbnail));
+            var thumbnail = "https://cdn-icons-png.flaticon.com/256/6028/6028787.png";
+            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Any", DiscordColor.Yellow, thumbnail));
         }
         catch (Exception e)
         {

@@ -33,5 +33,6 @@ public class Bot
         slashCommands.RegisterCommands<PingCommand>();
         slashCommands.RegisterCommands<AnyJokeCommand>();
         slashCommands.RegisterCommands<ProgrammingJokeCommand>();
+        slashCommands.RegisterCommands<MiscJokeCommand>();
     }
 }
