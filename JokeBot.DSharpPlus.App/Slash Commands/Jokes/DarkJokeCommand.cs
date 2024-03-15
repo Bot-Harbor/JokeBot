@@ -6,7 +6,7 @@ namespace JokeBot.DSharpPlus.App.Slash_Commands.Jokes;
 
 public class DarkJokeCommand : ApplicationCommandModule
 {
-    [SlashCommand("dark", "Gives you a dark joke")]
+    [SlashCommand("dark", "Gives you a dark joke.")]
     public async Task DarkJokeCommandAsync(InteractionContext context)
     {
         try

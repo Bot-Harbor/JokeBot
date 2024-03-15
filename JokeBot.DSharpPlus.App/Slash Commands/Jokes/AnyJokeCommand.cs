@@ -13,7 +13,7 @@ public class AnyJokeCommand : ApplicationCommandModule
         {
             var jokeEmbed = new JokeEmbed();
             var thumbnail = "https://cdn-icons-png.flaticon.com/256/6028/6028787.png";
-            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Any", DiscordColor.Yellow, thumbnail));
+            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Any", DiscordColor.Cyan, thumbnail));
         }
         catch (Exception e)
         {
