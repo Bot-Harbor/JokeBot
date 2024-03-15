@@ -12,8 +12,4 @@
       <PackageReference Include="DSharpPlus.SlashCommands" Version="5.0.0-nightly-02167" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Embeds" />
-    </ItemGroup>
-
 </Project>
