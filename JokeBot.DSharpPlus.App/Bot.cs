@@ -30,6 +30,7 @@ public class Bot
     private void SlashCommands()
     {
         var slashCommands = Client.UseSlashCommands();
+        slashCommands.RegisterCommands<HelpCommand>();
         slashCommands.RegisterCommands<PingCommand>();
         slashCommands.RegisterCommands<CaptionCommand>();
         slashCommands.RegisterCommands<AnyJokeCommand>();
