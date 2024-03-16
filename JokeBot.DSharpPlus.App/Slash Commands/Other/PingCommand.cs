@@ -1,7 +1,7 @@
 ﻿using DSharpPlus.SlashCommands;
 using JokeBot.DSharpPlus.App.Embeds;
 
-namespace JokeBot.DSharpPlus.App.Slash_Commands;
+namespace JokeBot.DSharpPlus.App.Slash_Commands.Other;
 
 public class PingCommand : ApplicationCommandModule
 {
@@ -16,7 +16,7 @@ public class PingCommand : ApplicationCommandModule
         catch (Exception e)
         {
             var errorEmbed = new ErrorEmbed();
-            await context.CreateResponseAsync(errorEmbed.CommandFailedEmbedBuilder(e.Message));
+            await context.CreateResponseAsync(errorEmbed.CommandFailedEmbedBuilder(e.Message), true);
         }
     }
 }

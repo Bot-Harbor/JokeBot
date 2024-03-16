@@ -19,7 +19,7 @@ public class PunCommand : ApplicationCommandModule
         catch (Exception e)
         {
             var errorEmbed = new ErrorEmbed();
-            await context.CreateResponseAsync(errorEmbed.CommandFailedEmbedBuilder(e.Message));
+            await context.CreateResponseAsync(errorEmbed.CommandFailedEmbedBuilder(e.Message), true);
         }
     }
 }
