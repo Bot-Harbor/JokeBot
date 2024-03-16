@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JokeBot.DSharpPlus.App", "J
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JokeBot.Models", "JokeBot.Models\JokeBot.Models.csproj", "{4B88AAE0-CFE9-4EA0-A737-112D14A743BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JokeBot.API", "JokeBot.API\JokeBot.API.csproj", "{3FFA4963-7698-4FE7-B717-C101589E48EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{4B88AAE0-CFE9-4EA0-A737-112D14A743BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B88AAE0-CFE9-4EA0-A737-112D14A743BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B88AAE0-CFE9-4EA0-A737-112D14A743BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FFA4963-7698-4FE7-B717-C101589E48EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FFA4963-7698-4FE7-B717-C101589E48EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FFA4963-7698-4FE7-B717-C101589E48EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FFA4963-7698-4FE7-B717-C101589E48EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
