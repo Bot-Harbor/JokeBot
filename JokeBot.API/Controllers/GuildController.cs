@@ -18,7 +18,8 @@ public class GuildController : ControllerBase
     }
 
     [HttpGet("")]
-    public async Task<IActionResult> Get()
+    [ServiceFilter(typeof(GuildApiKeyFilter))]
+    public async Task<IActionResult> Get([FromHeader(Name = "x-api-key")] [Required] string header)
     {
         var guilds = await _guildRepository.GetAll();
 
@@ -31,7 +32,8 @@ public class GuildController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(string id)
+    [ServiceFilter(typeof(GuildApiKeyFilter))]
+    public async Task<IActionResult> GetById(string id, [FromHeader(Name = "x-api-key")] [Required] string header)
     {
         var guild = await _guildRepository.GetById(id);
 
@@ -44,14 +46,16 @@ public class GuildController : ControllerBase
     }
 
     [HttpPost("")]
-    public async Task<IActionResult> Create(GuildModel guild)
+    [ServiceFilter(typeof(GuildApiKeyFilter))]
+    public async Task<IActionResult> Create(GuildModel guild, [FromHeader(Name = "x-api-key")] [Required] string header)
     {
         guild = await _guildRepository.Create(guild);
         return Created(guild.Id, guild);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(string id, GuildModel guild)
+    [ServiceFilter(typeof(GuildApiKeyFilter))]
+    public async Task<IActionResult> Update(string id, GuildModel guild, [FromHeader(Name = "x-api-key")] [Required] string header)
     {
         guild = await _guildRepository.Update(id, guild);
 
@@ -64,7 +68,8 @@ public class GuildController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(string id)
+    [ServiceFilter(typeof(GuildApiKeyFilter))]
+    public async Task<IActionResult> Delete(string id, [FromHeader(Name = "x-api-key")] [Required] string header)
     {
         await _guildRepository.Delete(id);
         return NoContent();
