@@ -15,7 +15,7 @@ public class JokeModel
     [JsonPropertyName("safe")] public bool Safe { get; set; }
 }
 
-public class Flags
+public partial class Flags
 {
     [JsonPropertyName("nsfw")] public bool Nsfw { get; set; }
     [JsonPropertyName("religious")] public bool Religious { get; set; }
