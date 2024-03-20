@@ -52,4 +52,12 @@ public class GuildController : ControllerBase
 
         return Ok(guild);
     }
+    
+    [HttpDelete("{id}")]
+    [ServiceFilter(typeof(GuildApiKeyFilter))]
+    public async Task<IActionResult> Delete(string id, [FromHeader(Name = "x-api-key")] [Required] string header)
+    {
+        await _guildRepository.Delete(id);
+        return NoContent();
+    }
 }

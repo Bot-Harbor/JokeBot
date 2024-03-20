@@ -1,7 +1,6 @@
 using JokeBot.API.Authentication;
 using JokeBot.API.Repositories;
 using JokeBot.API.Repositories.Interfaces;
-using JokeBot.API.Settings;
 using JokeBot.Models;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
