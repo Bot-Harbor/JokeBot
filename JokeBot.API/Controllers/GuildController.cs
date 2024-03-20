@@ -16,21 +16,7 @@ public class GuildController : ControllerBase
     {
         _guildRepository = guildRepository;
     }
-
-    [HttpGet("")]
-    [ServiceFilter(typeof(GuildApiKeyFilter))]
-    public async Task<IActionResult> Get([FromHeader(Name = "x-api-key")] [Required] string header)
-    {
-        var guilds = await _guildRepository.GetAll();
-
-        if (!guilds.Any())
-        {
-            return NotFound();
-        }
-
-        return Ok(guilds);
-    }
-
+    
     [HttpGet("{id}")]
     [ServiceFilter(typeof(GuildApiKeyFilter))]
     public async Task<IActionResult> GetById(string id, [FromHeader(Name = "x-api-key")] [Required] string header)
@@ -65,13 +51,5 @@ public class GuildController : ControllerBase
         }
 
         return Ok(guild);
-    }
-
-    [HttpDelete("{id}")]
-    [ServiceFilter(typeof(GuildApiKeyFilter))]
-    public async Task<IActionResult> Delete(string id, [FromHeader(Name = "x-api-key")] [Required] string header)
-    {
-        await _guildRepository.Delete(id);
-        return NoContent();
     }
 }
