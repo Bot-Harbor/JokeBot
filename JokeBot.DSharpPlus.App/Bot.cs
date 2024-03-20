@@ -1,5 +1,7 @@
 ﻿using DSharpPlus;
+using DSharpPlus.EventArgs;
 using DSharpPlus.SlashCommands;
+using JokeBot.DSharpPlus.App.Events;
 using JokeBot.DSharpPlus.App.Secrets;
 using JokeBot.DSharpPlus.App.Slash_Commands.Jokes;
 using JokeBot.DSharpPlus.App.Slash_Commands.Other;
@@ -24,6 +26,7 @@ public class Bot
         Client = new DiscordClient(discordConfig);
         await Client.ConnectAsync();
         SlashCommands();
+        Events();
         await Task.Delay(-1);
     }
 
@@ -40,5 +43,12 @@ public class Bot
         slashCommands.RegisterCommands<PunCommand>();
         slashCommands.RegisterCommands<SpookyJokeCommand>();
         slashCommands.RegisterCommands<ChristmasJokeCommand>();
+    }
+
+    private void Events()
+    {
+        Client.GuildAvailable += GuildAvailable.ClientOnGuildAvailable;
+        Client.GuildCreated += GuildCreated.ClientOnGuildCreated;
+        Client.GuildDeleted += GuildDeleted.ClientOnGuildDeleted;
     }
 }
