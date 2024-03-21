@@ -11,7 +11,7 @@ public class CaptionCommand : ApplicationCommandModule
     [SlashCommand("embed", "Add a custom embedded message.")]
     public async Task CaptionCommandAsync(InteractionContext context,
         [Option("title", "Add a title to your embed.")] string title,
-        [Option("image", "Pick the image you want to add to the embed.")] DiscordAttachment imageEmbed,
+        [Option("image", "Pick the image you want to add to the embed.")] DiscordAttachment imageEmbed = null,
         [Option("color", "Pick a color for your embed.")] Color color = default,
         [Option("authorName", "Add an author name to your embed.")] string authorName = "",
         [Option("authorIconUrl", "Add an image url to your author's icon.")] string authorIconUrl = "",
