@@ -19,7 +19,7 @@ public class DarkJokeCommand : ApplicationCommandModule
         catch (Exception e)
         {
             var errorEmbed = new ErrorEmbed();
-            await context.CreateResponseAsync(errorEmbed.CommandFailedEmbedBuilder(e.Message), true);
+            await context.CreateResponseAsync(errorEmbed.NoJokesEmbedBuilder());
         }
     }
 }
