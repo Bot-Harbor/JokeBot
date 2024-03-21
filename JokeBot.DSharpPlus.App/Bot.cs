@@ -43,6 +43,7 @@ public class Bot
         slashCommands.RegisterCommands<PunCommand>();
         slashCommands.RegisterCommands<SpookyJokeCommand>();
         slashCommands.RegisterCommands<ChristmasJokeCommand>();
+        slashCommands.RegisterCommands<ViewFiltersCommand>();
     }
 
     private void Events()

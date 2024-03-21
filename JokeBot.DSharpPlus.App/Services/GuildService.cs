@@ -14,6 +14,16 @@ public class GuildService
         _httpClient = httpClient;
     }
 
+    public async Task<GuildModel> Get(string id)
+    {
+        var apiKey = Http.ApiKey;
+        var requestHeader = Http.RequestHeader;
+        _httpClient.DefaultRequestHeaders.Add(requestHeader, apiKey);
+        var result = await _httpClient.GetAsync($"https://jokebotapi.azurewebsites.net/guilds/{id}");
+        var json = await result.Content.ReadAsStringAsync();
+        return JsonSerializer.Deserialize<GuildModel>(json);
+    }
+
     public async Task Create(GuildModel guildModel)
     {
         var content = JsonSerializer.Serialize(guildModel);
