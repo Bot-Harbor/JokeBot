@@ -42,7 +42,8 @@ public class HelpEmbed
                        $"Shard: {shardCount}  •  " +
                        $"Ping: {ping}  •  " +
                        $"Version: {botVersion}"
-            }
+            },
+            Timestamp = DateTimeOffset.Now
         };
 
         helpEmbed.AddField

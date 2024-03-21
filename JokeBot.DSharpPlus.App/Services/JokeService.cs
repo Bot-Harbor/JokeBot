@@ -13,11 +13,35 @@ public class JokeService
         _httpClient = httpClient;
     }
 
-    public async Task<JokeModel> Get(string category)
+    public async Task<JokeModel> Get(string category, bool nsfw, bool religious, bool political, bool racist, bool sexist, bool dirty)
     {
-        var result = await _httpClient.GetAsync(
-            $"https://v2.jokeapi.dev/joke/{category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit");
-        if (!result.IsSuccessStatusCode) return new JokeModel();
+        var baseUrl = $"https://v2.jokeapi.dev/joke/{category}?";
+        var blackFlags = "blacklistFlags="; 
+        if (nsfw == false)
+        {
+            blackFlags +=  "nsfw,";
+        }
+        if (religious == false)
+        {
+            blackFlags +=  "religious,";
+        }
+        if (political == false)
+        {
+            blackFlags +=  "political,";
+        } 
+        if (racist == false)
+        {
+            blackFlags +=  "racist,";
+        }
+        if (sexist == false)
+        {
+            blackFlags +=  "sexist,";
+        }
+        if (dirty == false)
+        {
+            blackFlags +=  "explicit";
+        }
+        var result = await _httpClient.GetAsync(baseUrl + blackFlags);
         var json = await result.Content.ReadAsStringAsync();
         return JsonSerializer.Deserialize<JokeModel>(json)!;
     }
