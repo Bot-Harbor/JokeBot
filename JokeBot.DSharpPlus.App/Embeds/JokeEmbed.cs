@@ -15,6 +15,7 @@ public class JokeEmbed
         var guildService = new GuildService(client);
         var guildId = context.Guild.Id.ToString();
         var guild = await guildService.Get(guildId);
+        if (guild == null) throw new Exception();
 
         var jokeService = new JokeService(client);
         var joke = await jokeService.Get(category, guild.Flag.Nsfw, guild.Flag.Religious, guild.Flag.Political,
@@ -50,7 +51,7 @@ public class JokeEmbed
                     $"**Delivery:** {joke.Delivery}";
                 break;
             default:
-                embed.Title = "😔  -  No jokes could be found at this time.";
+                embed.Title = "😔  •  No jokes could be found at this time. Please try again later.";
                 break;
         }
 

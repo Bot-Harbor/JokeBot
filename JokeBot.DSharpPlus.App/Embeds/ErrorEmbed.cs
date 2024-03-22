@@ -8,7 +8,7 @@ public class ErrorEmbed
     {
         var embed = new DiscordEmbedBuilder()
         {
-            Description = $"⚠️ • Command failed to execute due to ``{error}`` !",
+            Title = $"⚠️ • Command failed to execute due to ``{error}`` !",
             Color = DiscordColor.Red,
             Timestamp = DateTimeOffset.Now
         };
@@ -20,7 +20,7 @@ public class ErrorEmbed
     {
         var embed = new DiscordEmbedBuilder()
         {
-            Description = $"⚠️ • Command failed to execute due to ``{error}`` !",
+            Title = $"⚠️ • Command failed to execute due to ``{error}`` !",
             Color = DiscordColor.Red,
             Timestamp = DateTimeOffset.Now
         };
@@ -32,7 +32,7 @@ public class ErrorEmbed
     {
         var embed = new DiscordEmbedBuilder
         {
-            Description = "😔  -  There are no filters to view at this time. Please try again later.",
+            Title = "😔  •  There are no filters to view at this time. Please try again later.",
             Color = DiscordColor.Red,
             Timestamp = DateTimeOffset.Now
         };
@@ -44,7 +44,7 @@ public class ErrorEmbed
     {
         var embed = new DiscordEmbedBuilder
         {
-            Description = "😔  -  No jokes could be found at this time. Please try again later.",
+            Title = "😔  •  Could not access your blacklist filters to get a joke. Please try again later.",
             Color = DiscordColor.Red,
             Timestamp = DateTimeOffset.Now
         };
@@ -56,7 +56,7 @@ public class ErrorEmbed
     {
         var embed = new DiscordEmbedBuilder
         {
-            Title = "😔  -  Failed to change filters. Please try again later.",
+            Title = "😔  •  Failed to change filters. Please try again later.",
             Color = DiscordColor.Red,
             Timestamp = DateTimeOffset.Now
         };
