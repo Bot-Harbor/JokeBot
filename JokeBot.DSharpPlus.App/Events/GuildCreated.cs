@@ -17,12 +17,12 @@ public class GuildCreated
             Id = guildId.ToString(),
             Flag = new Flag
             {
-                Nsfw = false,
-                Religious = false,
-                Political = false,
-                Racist = false,
-                Sexist = false,
-                Explicit = false
+                Nsfw = true,
+                Religious = true,
+                Political = true,
+                Racist = true,
+                Sexist = true,
+                Explicit = true
             }
         };
         await guildService.Create(guildModel);

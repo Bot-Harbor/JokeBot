@@ -17,31 +17,36 @@ public class JokeService
     {
         var baseUrl = $"https://v2.jokeapi.dev/joke/{category}?";
         var blackFlags = "blacklistFlags="; 
-        if (nsfw == false)
+        if (nsfw)
         {
             blackFlags +=  "nsfw,";
         }
-        if (religious == false)
+        if (religious)
         {
             blackFlags +=  "religious,";
         }
-        if (political == false)
+        if (political)
         {
             blackFlags +=  "political,";
         } 
-        if (racist == false)
+        if (racist)
         {
             blackFlags +=  "racist,";
         }
-        if (sexist == false)
+        if (sexist)
         {
             blackFlags +=  "sexist,";
         }
-        if (dirty == false)
+        if (dirty)
         {
-            blackFlags +=  "explicit";
+            blackFlags +=  "explicit,";
         }
-        var result = await _httpClient.GetAsync(baseUrl + blackFlags);
+
+        var url = baseUrl + blackFlags;
+        var requestUrl = url.Substring(0, url.Length - 1);
+        Console.WriteLine(requestUrl);
+        var result = await _httpClient.GetAsync(requestUrl);
+        if (!result.IsSuccessStatusCode) return null;
         var json = await result.Content.ReadAsStringAsync();
         return JsonSerializer.Deserialize<JokeModel>(json)!;
     }

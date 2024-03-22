@@ -40,11 +40,11 @@ public class JokeEmbed
         switch (joke.Type)
         {
             case "single":
-                embed.Title = $"Category  -  {category}";
+                embed.Title = $"Category  •  {category}";
                 embed.Description = $"**Joke:** {joke.Joke}";
                 return embed;
             case "twopart":
-                embed.Title = $"Category  -  {category}";
+                embed.Title = $"Category  •  {category}";
                 embed.Description =
                     $"**Setup:** {joke.Setup}\n\n" +
                     $"**Delivery:** {joke.Delivery}";

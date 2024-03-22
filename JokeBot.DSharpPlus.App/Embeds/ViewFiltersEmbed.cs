@@ -19,7 +19,7 @@ public class ViewFiltersEmbed
                 Name = guildName,
                 IconUrl = guildIcon
             },
-            Title = $"{guildName}'s Filters",
+            Title = $"🏴  •  {guildName}'s Blacklist Filters",
             Description =
                 $"**NSFW:** {nsfw.ToString()}\n" +
                 $"**Religious:** {religious.ToString()}\n" +
