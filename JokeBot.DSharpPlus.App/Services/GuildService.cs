@@ -20,6 +20,7 @@ public class GuildService
         var requestHeader = Http.RequestHeader;
         _httpClient.DefaultRequestHeaders.Add(requestHeader, apiKey);
         var result = await _httpClient.GetAsync($"https://jokebotapi.azurewebsites.net/guilds/{id}");
+        if (!result.IsSuccessStatusCode) return null;
         var json = await result.Content.ReadAsStringAsync();
         return JsonSerializer.Deserialize<GuildModel>(json);
     }
@@ -34,6 +35,20 @@ public class GuildService
         await _httpClient.PostAsync("https://jokebotapi.azurewebsites.net/guilds", bodyContent);
     }
 
+    public async Task<GuildModel> Update(string id, GuildModel guildModel)
+    {
+        var content = JsonSerializer.Serialize(guildModel);
+        var bodyContent = new StringContent(content, Encoding.UTF8, "application/json");
+        var apiKey = Http.ApiKey;
+        var requestHeader = Http.RequestHeader;
+        _httpClient.DefaultRequestHeaders.Add(requestHeader, apiKey);
+        var result = await _httpClient.PutAsync($"https://jokebotapi.azurewebsites.net/guilds/{id}", bodyContent);
+        Console.WriteLine(result.ReasonPhrase);
+        // Status code: 401
+        if (!result.IsSuccessStatusCode) return null;
+        return new GuildModel();
+    }
+    
     public async Task Delete(string id)
     {
         var apiKey = Http.ApiKey;

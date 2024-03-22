@@ -51,4 +51,16 @@ public class ErrorEmbed
 
         return embed;
     }
+    
+    public DiscordEmbedBuilder ChangingFiltersFailedEmbedBuilder()
+    {
+        var embed = new DiscordEmbedBuilder
+        {
+            Title = "😔  -  Failed to change filters. Please try again later.",
+            Color = DiscordColor.Red,
+            Timestamp = DateTimeOffset.Now
+        };
+
+        return embed;
+    }
 }

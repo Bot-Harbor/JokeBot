@@ -20,13 +20,6 @@ public class JokeEmbed
         var joke = await jokeService.Get(category, guild.Flag.Nsfw, guild.Flag.Religious, guild.Flag.Political,
             guild.Flag.Racist, guild.Flag.Sexist, guild.Flag.Explicit);
         
-        Console.WriteLine(guild.Flag.Nsfw);
-        Console.WriteLine(guild.Flag.Religious);
-        Console.WriteLine(guild.Flag.Political);
-        Console.WriteLine(guild.Flag.Racist);
-        Console.WriteLine(guild.Flag.Sexist);
-        Console.WriteLine(guild.Flag.Explicit);
-
         var guildName = context.Guild.Name;
         var guildIcon = context.Guild.GetIconUrl(ImageFormat.Png);
         var embed = new DiscordEmbedBuilder()
