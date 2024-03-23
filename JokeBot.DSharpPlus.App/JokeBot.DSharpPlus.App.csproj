@@ -8,12 +8,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\JokeBot.Models\JokeBot.Models.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="DSharpPlus" Version="5.0.0-nightly-02168" />
       <PackageReference Include="DSharpPlus.SlashCommands" Version="5.0.0-nightly-02168" />
+      <PackageReference Include="MongoDB.Bson" Version="2.24.0" />
     </ItemGroup>
 
 </Project>

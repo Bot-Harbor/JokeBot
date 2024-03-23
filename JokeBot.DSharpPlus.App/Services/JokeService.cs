@@ -1,5 +1,4 @@
-﻿using JokeBot.Models;
-using Newtonsoft.Json;
+﻿using JokeBot.DSharpPlus.App.Models;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace JokeBot.DSharpPlus.App.Services;

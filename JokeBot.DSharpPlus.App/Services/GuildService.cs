@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using System.Text.Json;
+using JokeBot.DSharpPlus.App.Models;
 using JokeBot.DSharpPlus.App.Secrets;
-using JokeBot.Models;
 
 namespace JokeBot.DSharpPlus.App.Services;
 
@@ -41,7 +41,7 @@ public class GuildService
         var bodyContent = new StringContent(content, Encoding.UTF8, "application/json");
         var apiKey = Http.ApiKey;
         var requestHeader = Http.RequestHeader;
-         _httpClient.DefaultRequestHeaders.Add(requestHeader, apiKey);
+        _httpClient.DefaultRequestHeaders.Add(requestHeader, apiKey);
         var result = await _httpClient.PutAsync($"https://jokebotapi.azurewebsites.net/guilds/{id}", bodyContent);
         if (!result.IsSuccessStatusCode) return null;
         return new GuildModel();

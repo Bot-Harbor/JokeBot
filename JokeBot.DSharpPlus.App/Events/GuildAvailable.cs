@@ -1,7 +1,7 @@
 ﻿using DSharpPlus;
 using DSharpPlus.EventArgs;
+using JokeBot.DSharpPlus.App.Models;
 using JokeBot.DSharpPlus.App.Services;
-using JokeBot.Models;
 
 namespace JokeBot.DSharpPlus.App.Events;
 
