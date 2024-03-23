@@ -32,14 +32,14 @@ Want to invite JokeBot to your own Discord server?
 
 ## Screenshots
 
-![image](/Images/about.png)
+![image](/Documentation/Images/about.png)
 
-![image](/Images/help.png)
+![image](/Documentation/Images/help.png)
 
-![image](/Images/ping.png)
+![image](/Documentation/Images/ping.png)
 
-![image](/Images/any.png)
+![image](/Documentation/Images/any.png)
 
-![image](/Images/christmas.png)
+![image](/Documentation/Images/christmas.png)
 
-![image](/Images/misc.png)
+![image](/Documentation/Images/misc.png)
