@@ -42,13 +42,13 @@ public class JokeEmbed
         {
             case "single":
                 embed.Title = $"Category  •  {joke.Category}";
-                embed.Description = $"**Joke:** {joke.Joke}";
+                embed.Description = $"**Joke:** ```{joke.Joke}```";
                 return embed;
             case "twopart":
                 embed.Title = $"Category  •  {joke.Category}";
                 embed.Description =
-                    $"**Setup:** {joke.Setup}\n\n" +
-                    $"**Delivery:** {joke.Delivery}";
+                    $"**Setup:** ```{joke.Setup}```\n" +
+                    $"**Delivery:** ```{joke.Delivery}```";
                 break;
             default:
                 embed.Title = "😔  •  No jokes could be found at this time. Please try again later.";

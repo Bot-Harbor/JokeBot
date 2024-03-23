@@ -19,7 +19,7 @@ public class DailyJokeEmbed
             },
             Timestamp = DateTimeOffset.Now
         };
-        
+
         var client = new HttpClient();
         var guildService = new GuildService(client);
 
@@ -30,6 +30,24 @@ public class DailyJokeEmbed
         var joke = await jokeService.Get(category, guildModel.Flag.Nsfw, guildModel.Flag.Religious,
             guildModel.Flag.Political,
             guildModel.Flag.Racist, guildModel.Flag.Sexist, guildModel.Flag.Explicit);
+
+        switch (joke.Type)
+        {
+            case "single":
+                embed.Title = $"Daily Joke: Category  •  {joke.Category}";
+                embed.Description = $"**Joke:** ```{joke.Joke}```";
+                return embed;
+            case "twopart":
+                embed.Title = $"Daily Joke: Category  •  {joke.Category}";
+                embed.Description =
+                    $"**Setup:** ```{joke.Setup}```\n" +
+                    $"**Delivery:** ```{joke.Delivery}```";
+                break;
+            default:
+                embed.Title =
+                    "Daily Joke: 😔  •  No jokes could be found at this time. Please try again later.";
+                break;
+        }
 
         switch (joke.Category.ToLower())
         {
@@ -77,28 +95,8 @@ public class DailyJokeEmbed
                     Url = "https://styles.redditmedia.com/t5_2vlkk/styles/communityIcon_l05g9fzm81m01.png"
                 };
                 break;
-            default:
-                throw new Exception();
         }
 
-        switch (joke.Type)
-        {
-            case "single":
-                embed.Title = $"Daily Joke: Category  •  {joke.Category}";
-                embed.Description = $"**Joke:** {joke.Joke}";
-                return embed;
-            case "twopart":
-                embed.Title = $"Daily Joke: Category  •  {joke.Category}";
-                embed.Description =
-                    $"**Setup:** {joke.Setup}\n\n" +
-                    $"**Delivery:** {joke.Delivery}";
-                break;
-            default:
-                embed.Title =
-                    "Daily Joke: 😔  •  No jokes could be found at this time. Please try again later.";
-                break;
-        }
-        
         return embed;
     }
 }
