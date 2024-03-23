@@ -63,4 +63,16 @@ public class ErrorEmbed
 
         return embed;
     }
+    
+    public DiscordEmbedBuilder IncorrectPasswordEmbedBuilder()
+    {
+        var embed = new DiscordEmbedBuilder
+        {
+            Title = "🚫  •  Incorrect password! Please try again.",
+            Color = DiscordColor.Red,
+            Timestamp = DateTimeOffset.Now
+        };
+
+        return embed;
+    }
 }

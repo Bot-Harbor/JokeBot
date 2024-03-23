@@ -9,7 +9,7 @@ public class ChangeFiltersEmbed
     {
         var embed = new DiscordEmbedBuilder
         {
-            Title = $"🙌  -  {context.Guild.Name}'s blacklist filters have been changed!",
+            Title = $"🏴  -  {context.Guild.Name}'s blacklist filters have been changed!",
             Color = DiscordColor.Yellow,
             Timestamp = DateTimeOffset.Now
         };

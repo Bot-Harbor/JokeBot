@@ -16,7 +16,7 @@ public class JokeService
     public async Task<JokeModel> Get(string category, bool nsfw, bool religious, bool political, bool racist, bool sexist, bool dirty)
     {
         var baseUrl = $"https://v2.jokeapi.dev/joke/{category}?";
-        var blackFlags = "blacklistFlags="; 
+        var blackFlags = ""; 
         if (nsfw)
         {
             blackFlags +=  "nsfw,";
@@ -41,10 +41,14 @@ public class JokeService
         {
             blackFlags +=  "explicit,";
         }
+        
+        if (!string.IsNullOrEmpty(blackFlags))
+        {
+            blackFlags = "blacklistFlags=" + blackFlags.TrimEnd(',') + "&";
+        }
 
         var url = baseUrl + blackFlags;
         var requestUrl = url.Substring(0, url.Length - 1);
-        Console.WriteLine(requestUrl);
         var result = await _httpClient.GetAsync(requestUrl);
         if (!result.IsSuccessStatusCode) return null;
         var json = await result.Content.ReadAsStringAsync();

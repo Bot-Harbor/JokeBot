@@ -45,6 +45,7 @@ public class Bot
         slashCommands.RegisterCommands<ChristmasJokeCommand>();
         slashCommands.RegisterCommands<ViewFiltersCommand>();
         slashCommands.RegisterCommands<ChangeFiltersCommand>();
+        slashCommands.RegisterCommands<DailyJokeSwitchCommand>();
     }
 
     private void Events()

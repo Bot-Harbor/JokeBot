@@ -41,10 +41,8 @@ public class GuildService
         var bodyContent = new StringContent(content, Encoding.UTF8, "application/json");
         var apiKey = Http.ApiKey;
         var requestHeader = Http.RequestHeader;
-        _httpClient.DefaultRequestHeaders.Add(requestHeader, apiKey);
+         _httpClient.DefaultRequestHeaders.Add(requestHeader, apiKey);
         var result = await _httpClient.PutAsync($"https://jokebotapi.azurewebsites.net/guilds/{id}", bodyContent);
-        Console.WriteLine(result.ReasonPhrase);
-        // Status code: 401
         if (!result.IsSuccessStatusCode) return null;
         return new GuildModel();
     }
