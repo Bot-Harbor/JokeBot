@@ -12,9 +12,7 @@ public class ChristmasJokeCommand : ApplicationCommandModule
         try
         {
             var jokeEmbed = new JokeEmbed();
-            var thumbnail = "https://styles.redditmedia.com/t5_2vlkk/styles/communityIcon_l05g9fzm81m01.png";
-            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Christmas",
-                DiscordColor.Green, thumbnail));
+            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Christmas"));
         }
         catch (Exception e)
         {

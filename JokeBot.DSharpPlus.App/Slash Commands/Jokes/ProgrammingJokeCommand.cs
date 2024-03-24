@@ -12,9 +12,7 @@ public class ProgrammingJokeCommand : ApplicationCommandModule
         try
         {
             var jokeEmbed = new JokeEmbed();
-            var thumbnail = "https://cdn-icons-png.flaticon.com/256/6076/6076813.png";
-            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Programming",
-                DiscordColor.Purple, thumbnail));
+            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Programming"));
         }
         catch (Exception e)
         {

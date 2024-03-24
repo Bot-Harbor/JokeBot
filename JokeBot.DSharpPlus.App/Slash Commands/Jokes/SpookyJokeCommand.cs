@@ -12,9 +12,7 @@ public class SpookyJokeCommand : ApplicationCommandModule
         try
         {
             var jokeEmbed = new JokeEmbed();
-            var thumbnail = "https://cdn-icons-png.flaticon.com/128/12554/12554074.png";
-            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Spooky",
-                DiscordColor.Orange, thumbnail));
+            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Spooky"));
         }
         catch (Exception e)
         {

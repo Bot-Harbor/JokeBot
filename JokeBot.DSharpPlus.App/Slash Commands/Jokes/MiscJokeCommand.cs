@@ -12,9 +12,7 @@ public class MiscJokeCommand : ApplicationCommandModule
         try
         {
             var jokeEmbed = new JokeEmbed();
-            var thumbnail = "https://icons.iconarchive.com/icons/tribalmarkings/colorflow/256/miscellaneous-icon.png";
-            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Misc",
-                DiscordColor.Gray, thumbnail));
+            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Misc"));
         }
         catch (Exception e)
         {

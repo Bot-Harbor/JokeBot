@@ -7,8 +7,7 @@ namespace JokeBot.DSharpPlus.App.Embeds;
 
 public class JokeEmbed
 {
-    public async Task<DiscordEmbedBuilder> JokeEmbedBuilder(InteractionContext context, string category,
-        DiscordColor color, string thumbnailUrl)
+    public async Task<DiscordEmbedBuilder> JokeEmbedBuilder(InteractionContext context, string category)
     {
         var client = new HttpClient();
         
@@ -25,15 +24,10 @@ public class JokeEmbed
         var guildIcon = context.Guild.GetIconUrl(ImageFormat.Png);
         var embed = new DiscordEmbedBuilder()
         {
-            Color = color,
             Author = new DiscordEmbedBuilder.EmbedAuthor()
             {
                 Name = guildName,
                 IconUrl = guildIcon
-            },
-            Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail()
-            {
-                Url = thumbnailUrl
             },
             Timestamp = DateTimeOffset.Now
         };
@@ -54,7 +48,53 @@ public class JokeEmbed
                 embed.Title = "😔  •  No jokes could be found at this time. Please try again later.";
                 break;
         }
-
+        
+        switch (joke.Category)
+        {
+            case "Programming":
+                embed.Color = DiscordColor.Purple;
+                embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail()
+                {
+                    Url = "https://cdn-icons-png.flaticon.com/256/6076/6076813.png"
+                };
+                break;
+            case "Dark":
+                embed.Color = DiscordColor.Black;
+                embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail()
+                {
+                    Url = "https://styles.redditmedia.com/t5_2semr/styles/communityIcon_vl21nfr78fp81.png"
+                };
+                break;
+            case "Misc":
+                embed.Color = DiscordColor.Gray;
+                embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail()
+                {
+                    Url = "https://icons.iconarchive.com/icons/tribalmarkings/colorflow/256/miscellaneous-icon.png"
+                };
+                break;
+            case "Pun":
+                embed.Color = DiscordColor.Yellow;
+                embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail()
+                {
+                    Url = "https://images.vexels.com/media/users/3/234764/isolated/lists/0783c83507b7251cfdee269b866f6d77-insect-pun-funny-badge.png"
+                };
+                break;
+            case "Spooky":
+                embed.Color = DiscordColor.Orange;
+                embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail()
+                {
+                    Url = "https://cdn-icons-png.flaticon.com/128/12554/12554074.png"
+                };
+                break;
+            case "Christmas":
+                embed.Color = DiscordColor.Green;
+                embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail()
+                {
+                    Url = "https://styles.redditmedia.com/t5_2vlkk/styles/communityIcon_l05g9fzm81m01.png"
+                };
+                break;
+        }
+        
         return embed;
     }
 }

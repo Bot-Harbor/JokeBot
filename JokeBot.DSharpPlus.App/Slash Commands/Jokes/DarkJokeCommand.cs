@@ -12,9 +12,7 @@ public class DarkJokeCommand : ApplicationCommandModule
         try
         {
             var jokeEmbed = new JokeEmbed();
-            var thumbnail = "https://styles.redditmedia.com/t5_2semr/styles/communityIcon_vl21nfr78fp81.png";
-            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Dark",
-                DiscordColor.Black, thumbnail));
+            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Dark"));
         }
         catch (Exception e)
         {

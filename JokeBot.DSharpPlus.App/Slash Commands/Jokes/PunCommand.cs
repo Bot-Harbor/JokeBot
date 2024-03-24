@@ -12,9 +12,7 @@ public class PunCommand : ApplicationCommandModule
         try
         {
             var jokeEmbed = new JokeEmbed();
-            var thumbnail = "https://images.vexels.com/media/users/3/234764/isolated/lists/0783c83507b7251cfdee269b866f6d77-insect-pun-funny-badge.png";
-            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Pun",
-                DiscordColor.Yellow, thumbnail));
+            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Pun"));
         }
         catch (Exception e)
         {
