@@ -1,7 +1,8 @@
 # JokeBot
-A Discord bot built with C# and Docker to utilize the Joke API.
 
-Built with .NET Core 3.1 and Docker.
+Your SFW go-to resource for all kinds of jokes.
+
+Powered by DSharpPlus 5.0.0 and Docker.
 
 ---
 
@@ -13,33 +14,36 @@ Want the link to utilize the Joke API?
 
 Want to invite JokeBot to your own Discord server?
 
-[https://discord.com/api/oauth2/authorize?client_id=1134585389714260050&permissions=8&scope=bot](https://discord.com/api/oauth2/authorize?client_id=1134585389714260050&permissions=8&scope=bot)
+[Add Joke Bot](https://discord.com/api/oauth2/authorize?client_id=1134585389714260050&permissions=8&scope=bot%20applications.commands)
 
 ## Commands
 | Command | Description |
 | ------------- | ------------- |
-| `jokebot help` | Assists the user by displaying all available commands |
-| `jokebot ping` | Pings the Discord channel |
-| `jokebot any` | Displays any kind of joke |
-| `jokebot programming` | Displays a programming joke |
-| `jokebot dark` | Displays a dark humor joke |
-| `jokebot pun` | Displays a pun |
-| `jokebot spooky` | Displays a spooky joke |
-| `jokebot christmas` | Displays a christmas joke |
-| `jokebot misc` | Displays a miscellaneous joke |
+| `🆘 /help` | Gives you information about the bot & the available commands |
+| `🏓 /ping` | Will pong back to the Discord channel |
+| `🖼️ /embed` | Add a custom embedded message |
+| `💬 /any` | Gives you any kind of joke |
+| `👾 /programming` | Gives you a programming joke |
+| `☠️ /dark` | Gives you a dark joke |
+| `💡 /misc` | Gives you a miscellaneous joke  |
+| `🤪 /pun` | Gives you a pun |
+| `🎃 /spooky` | Gives you a spooky joke |
+| `🎄 /christmas` | Gives you a christmas joke |
+| `️⚙️ /changefilters` | Allows you to change the joke blacklist filters for a server |
+| `📄 /viewfilters` | Shows you the current joke filters for the server |
+| `⌛ /scheduledailyjoke` | Allows you to schedule a time for the daily joke |
+| `📴 /turnoffdailyjoke` | Allows you to turn off the daily joke |
 
 ---
 
 ## Screenshots
 
-![image](/Documentation/Images/about.png)
-
 ![image](/Documentation/Images/help.png)
 
-![image](/Documentation/Images/ping.png)
+![image](/Documentation/Images/programming.png)
 
-![image](/Documentation/Images/any.png)
-
-![image](/Documentation/Images/christmas.png)
+![image](/Documentation/Images/pun.png)
 
 ![image](/Documentation/Images/misc.png)
+
+![image](/Documentation/Images/filters.png)
