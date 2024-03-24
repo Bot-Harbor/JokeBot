@@ -31,13 +31,13 @@ public class JokeEmbed
             },
             Timestamp = DateTimeOffset.Now
         };
-
+        
         switch (joke.Type)
         {
             case "single":
                 embed.Title = $"Category  •  {joke.Category}";
                 embed.Description = $"**Joke:** ```{joke.Joke}```";
-                return embed;
+                break;
             case "twopart":
                 embed.Title = $"Category  •  {joke.Category}";
                 embed.Description =
@@ -49,44 +49,44 @@ public class JokeEmbed
                 break;
         }
         
-        switch (joke.Category)
+        switch (joke.Category.ToLower())
         {
-            case "Programming":
+            case "programming":
                 embed.Color = DiscordColor.Purple;
                 embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail()
                 {
                     Url = "https://cdn-icons-png.flaticon.com/256/6076/6076813.png"
                 };
                 break;
-            case "Dark":
+            case "dark":
                 embed.Color = DiscordColor.Black;
                 embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail()
                 {
                     Url = "https://styles.redditmedia.com/t5_2semr/styles/communityIcon_vl21nfr78fp81.png"
                 };
                 break;
-            case "Misc":
+            case "misc":
                 embed.Color = DiscordColor.Gray;
                 embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail()
                 {
                     Url = "https://icons.iconarchive.com/icons/tribalmarkings/colorflow/256/miscellaneous-icon.png"
                 };
                 break;
-            case "Pun":
+            case "pun":
                 embed.Color = DiscordColor.Yellow;
                 embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail()
                 {
                     Url = "https://images.vexels.com/media/users/3/234764/isolated/lists/0783c83507b7251cfdee269b866f6d77-insect-pun-funny-badge.png"
                 };
                 break;
-            case "Spooky":
+            case "spooky":
                 embed.Color = DiscordColor.Orange;
                 embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail()
                 {
                     Url = "https://cdn-icons-png.flaticon.com/128/12554/12554074.png"
                 };
                 break;
-            case "Christmas":
+            case "christmas":
                 embed.Color = DiscordColor.Green;
                 embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail()
                 {

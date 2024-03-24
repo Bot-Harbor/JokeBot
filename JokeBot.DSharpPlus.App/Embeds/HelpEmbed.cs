@@ -58,7 +58,7 @@ public class HelpEmbed
             "🎄  </christmas:1218306868951388240>\n" +
             "⚙️  </changefilters:1220494746108166234>\n" +
             "📄  </viewfilters:1220445492052361287>\n" +
-            "🔛  </scheduledailyjoke:1221561325705232524> ``Admins Only``\n" +
+            "⌛  </scheduledailyjoke:1221561325705232524> ``Admins Only``\n" +
             "📴  </turnoffdailyjoke:1221561325705232525> ``Admins Only``",
             true
         );

@@ -36,7 +36,7 @@ public class DailyJokeEmbed
             case "single":
                 embed.Title = $"Daily Joke: Category  •  {joke.Category}";
                 embed.Description = $"**Joke:** ```{joke.Joke}```";
-                return embed;
+                break;
             case "twopart":
                 embed.Title = $"Daily Joke: Category  •  {joke.Category}";
                 embed.Description =

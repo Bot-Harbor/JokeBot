@@ -31,10 +31,8 @@ public class TurnOnDailyJokeCommand : ApplicationCommandModule
             {
                 try
                 {
-                    scheduledTime = scheduledTime.Insert(scheduledTime.Length - 2, ":");  
-                    Console.WriteLine(scheduledTime);
+                    scheduledTime = scheduledTime.Insert(scheduledTime.Length - 2, ":");
                     parsedScheduledTime = DateTimeOffset.Parse(scheduledTime).ToString("HH:mm");
-                    Console.WriteLine(parsedScheduledTime);
                     dailyJoke.SendDailyJoke(context, parsedScheduledTime);
                     await context.CreateResponseAsync(dailyJokeSwitchEmbed.DailyJokeOnEmbedBuilder());
                 }
@@ -48,7 +46,6 @@ public class TurnOnDailyJokeCommand : ApplicationCommandModule
                 try
                 {
                     parsedScheduledTime = DateTimeOffset.Parse(scheduledTime).ToString("HH:mm");
-                    Console.WriteLine(parsedScheduledTime);
                     dailyJoke.SendDailyJoke(context, parsedScheduledTime);
                     await context.CreateResponseAsync(dailyJokeSwitchEmbed.DailyJokeOnEmbedBuilder());
                 }
