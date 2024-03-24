@@ -75,4 +75,16 @@ public class ErrorEmbed
 
         return embed;
     }
+
+    public DiscordEmbedBuilder IncorrectTimeFormatEmbedBuilder()
+    {
+        var embed = new DiscordEmbedBuilder
+        {
+            Title = "🚫  •  Incorrect format! Please use the 24-hr format \"HH:mm\".",
+            Color = DiscordColor.Red,
+            Timestamp = DateTimeOffset.Now
+        };
+
+        return embed;
+    }
 }

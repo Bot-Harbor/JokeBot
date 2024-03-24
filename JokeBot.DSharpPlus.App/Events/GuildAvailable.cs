@@ -23,8 +23,9 @@ public class GuildAvailable
                     Political = true,
                     Racist = true,
                     Sexist = true,
-                    Explicit = true
-                }
+                    Explicit = true,
+                },
+                DailyJokeIsActive = false
             };
             await guildService.Create(guildModel);
         }

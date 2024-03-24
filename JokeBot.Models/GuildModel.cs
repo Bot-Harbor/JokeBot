@@ -5,6 +5,7 @@ namespace JokeBot.Models;
 public class GuildModel : BaseResource
 {
     [JsonPropertyName("flag")] public Flag Flag { get; set; }
+    [JsonPropertyName("dailyJokeIsActive")]public bool DailyJokeIsActive { get; set; }
 }
 
 public class Flag
