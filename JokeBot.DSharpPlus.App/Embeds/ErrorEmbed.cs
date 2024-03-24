@@ -80,7 +80,7 @@ public class ErrorEmbed
     {
         var embed = new DiscordEmbedBuilder
         {
-            Title = "🚫  •  Incorrect format! Please use the 24-hr format \"HH:mm\".",
+            Title = "🚫  •  Incorrect format! Please use the 24-hr format \"HH:mm:ss\".",
             Color = DiscordColor.Red,
             Timestamp = DateTimeOffset.Now
         };

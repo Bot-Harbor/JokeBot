@@ -22,25 +22,25 @@ public class DailyJoke
             var guildModel = await guildService.Get(guildId);
             var isActive = guildModel.DailyJokeIsActive;
             
-            var channel = context.Channel;
             if (isActive)
             {
-                var now = DateTimeOffset.Now.ToString("HH:mm");
-                
-                if (now == scheduledTime)
+                var easternTimeNow = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time")).ToString("HH:mm:ss");
+                if (easternTimeNow == scheduledTime)
                 {
                     var guildName = context.Guild.Name;
                     var guildIcon = context.Guild.GetIconUrl(ImageFormat.Png);
                     var dailyJokeEmbed = new DailyJokeEmbed();
-                    await channel.SendMessageAsync(await dailyJokeEmbed.DailyJokeEmbedBuilder("any", guildId, guildName, guildIcon));
+                    var channel = context.Channel;
+                    await channel.SendMessageAsync(
+                        await dailyJokeEmbed.DailyJokeEmbedBuilder("any", guildId, guildName, guildIcon));
+                    await Task.Delay(TimeSpan.FromSeconds(3));
                 }
             }
             else
             {
                 break;
             }
-
-            await Task.Delay(TimeSpan.FromSeconds(15));
+            
         }
     }
 }

@@ -11,7 +11,7 @@ public class TurnOnDailyJokeCommand : ApplicationCommandModule
     [SlashCommand("scheduledailyjoke", "Schedule a time for the daily joke.")]
     [SlashCommandPermissions(Permissions.Administrator)]
     public async Task TurnOnDailyJokeCommandAsync(InteractionContext context,
-        [Option("time", "Specify the time for the daily joke in a 24-hr format \"HH:mm\".")]
+        [Option("time", "Specify the time for the daily joke in a 24-hr format \"HH:mm:ss\". Repeats every \"24\" hours.")]
         string scheduledTime)
     {
         var dailyJokeSwitchEmbed = new DailyJokeSwitchEmbed();
@@ -25,14 +25,12 @@ public class TurnOnDailyJokeCommand : ApplicationCommandModule
             guildModel.DailyJokeIsActive = true;
             await guildService.Update(guildId, guildModel);
             
-            var dailyJoke = new DailyJoke();
-            string parsedScheduledTime;
-            if (!scheduledTime.Contains(':'))
+            if (scheduledTime.Contains(':'))
             {
                 try
                 {
-                    scheduledTime = scheduledTime.Insert(scheduledTime.Length - 2, ":");
-                    parsedScheduledTime = DateTimeOffset.Parse(scheduledTime).ToString("HH:mm");
+                    var parsedScheduledTime = DateTime.Parse(scheduledTime).ToString("HH:mm:ss");
+                    var dailyJoke = new DailyJoke();
                     dailyJoke.SendDailyJoke(context, parsedScheduledTime);
                     await context.CreateResponseAsync(dailyJokeSwitchEmbed.DailyJokeOnEmbedBuilder());
                 }
@@ -43,18 +41,8 @@ public class TurnOnDailyJokeCommand : ApplicationCommandModule
             }
             else
             {
-                try
-                {
-                    parsedScheduledTime = DateTimeOffset.Parse(scheduledTime).ToString("HH:mm");
-                    dailyJoke.SendDailyJoke(context, parsedScheduledTime);
-                    await context.CreateResponseAsync(dailyJokeSwitchEmbed.DailyJokeOnEmbedBuilder());
-                }
-                catch (Exception e)
-                {
-                    await context.CreateResponseAsync(errorEmbed.IncorrectTimeFormatEmbedBuilder());
-                }
+                await context.CreateResponseAsync(errorEmbed.IncorrectTimeFormatEmbedBuilder());
             }
-            
         }
         catch (Exception e)
         {
