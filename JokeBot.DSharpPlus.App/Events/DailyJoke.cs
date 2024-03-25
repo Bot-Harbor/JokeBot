@@ -1,17 +1,14 @@
-﻿using System.Timers;
-using DSharpPlus;
-using DSharpPlus.Entities;
+﻿using DSharpPlus;
 using DSharpPlus.SlashCommands;
 using JokeBot.DSharpPlus.App.Embeds;
-using JokeBot.DSharpPlus.App.Enums;
-using JokeBot.DSharpPlus.App.Secrets;
 using JokeBot.DSharpPlus.App.Services;
-using JokeBot.DSharpPlus.App.Slash_Commands.Jokes;
 
 namespace JokeBot.DSharpPlus.App.Events;
 
 public class DailyJoke
 {
+    public bool IsFirstTimeRunning { get; set; } = true;
+
     public async void SendDailyJoke(InteractionContext context, string scheduledTime)
     {
         while (true)
@@ -21,10 +18,33 @@ public class DailyJoke
             var guildService = new GuildService(client);
             var guildModel = await guildService.Get(guildId);
             var isActive = guildModel.DailyJokeIsActive;
-            
+
+            var easternTimeNow = TimeZoneInfo
+                .ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time"))
+                .ToString("HH:mm:ss");
+
+            if (IsFirstTimeRunning)
+            {
+                IsFirstTimeRunning = false;
+                var parsedEasternTimeNow = DateTime.Parse(easternTimeNow);
+                var parsedScheduledTime = DateTime.Parse(scheduledTime);
+                TimeSpan delayUntilFirstDailyJoke;
+
+                if (parsedScheduledTime > parsedEasternTimeNow)
+                {
+                    delayUntilFirstDailyJoke = parsedScheduledTime - parsedEasternTimeNow;
+                }
+                else
+                {
+                    parsedScheduledTime = parsedScheduledTime.AddDays(1);
+                    delayUntilFirstDailyJoke = parsedScheduledTime - parsedEasternTimeNow;
+                }
+                
+                await Task.Delay(delayUntilFirstDailyJoke);
+            }
+
             if (isActive)
             {
-                var easternTimeNow = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time")).ToString("HH:mm:ss");
                 if (easternTimeNow == scheduledTime)
                 {
                     var guildName = context.Guild.Name;
@@ -33,14 +53,13 @@ public class DailyJoke
                     var channel = context.Channel;
                     await channel.SendMessageAsync(
                         await dailyJokeEmbed.DailyJokeEmbedBuilder("any", guildId, guildName, guildIcon));
-                    await Task.Delay(TimeSpan.FromSeconds(3));
+                    await Task.Delay(TimeSpan.FromHours(23) + TimeSpan.FromMinutes(59) + TimeSpan.FromSeconds(55));
                 }
             }
             else
             {
                 break;
             }
-            
         }
     }
 }

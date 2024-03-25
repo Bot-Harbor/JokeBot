@@ -4,11 +4,12 @@ namespace JokeBot.DSharpPlus.App.Embeds;
 
 public class DailyJokeSwitchEmbed
 {
-    public DiscordEmbedBuilder DailyJokeOnEmbedBuilder()
+    public DiscordEmbedBuilder DailyJokeOnEmbedBuilder(string scheduledTime)
     {
+        var twelveHourFormat = DateTime.Parse(scheduledTime).ToString("hh:mm:ss tt"); 
         var embed = new DiscordEmbedBuilder
         {
-            Title = "🔛  •  Daily joke has been turned on!",
+            Title = $"🔛  •  Daily joke has been scheduled for ``{twelveHourFormat}``!",
             Color = DiscordColor.Green,
             Timestamp = DateTimeOffset.Now
         };

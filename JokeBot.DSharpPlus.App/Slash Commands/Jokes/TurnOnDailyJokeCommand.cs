@@ -32,7 +32,7 @@ public class TurnOnDailyJokeCommand : ApplicationCommandModule
                     var parsedScheduledTime = DateTime.Parse(scheduledTime).ToString("HH:mm:ss");
                     var dailyJoke = new DailyJoke();
                     dailyJoke.SendDailyJoke(context, parsedScheduledTime);
-                    await context.CreateResponseAsync(dailyJokeSwitchEmbed.DailyJokeOnEmbedBuilder());
+                    await context.CreateResponseAsync(dailyJokeSwitchEmbed.DailyJokeOnEmbedBuilder(scheduledTime));
                 }
                 catch (Exception e)
                 {
