@@ -26,9 +26,14 @@ public class DailyJoke
             if (IsFirstTimeRunning)
             {
                 IsFirstTimeRunning = false;
+                Console.WriteLine($"Time Now: {easternTimeNow}");
+                Console.WriteLine($"Scheduled Time: {scheduledTime}");
                 var parsedEasternTimeNow = DateTime.Parse(easternTimeNow);
                 var parsedScheduledTime = DateTime.Parse(scheduledTime);
+                Console.WriteLine($"=====\nParsed Time Now: {parsedEasternTimeNow}");
+                Console.WriteLine($"Parsed Scheduled Time: {parsedScheduledTime}");
                 TimeSpan delayUntilFirstDailyJoke;
+                var extraTime = TimeSpan.FromSeconds(5);
 
                 if (parsedScheduledTime > parsedEasternTimeNow)
                 {
@@ -39,7 +44,9 @@ public class DailyJoke
                     parsedScheduledTime = parsedScheduledTime.AddDays(1);
                     delayUntilFirstDailyJoke = parsedScheduledTime - parsedEasternTimeNow;
                 }
-                
+
+                delayUntilFirstDailyJoke -= extraTime;
+                Console.WriteLine($"Time Until First Daily Joke: {delayUntilFirstDailyJoke}");
                 await Task.Delay(delayUntilFirstDailyJoke);
             }
 
