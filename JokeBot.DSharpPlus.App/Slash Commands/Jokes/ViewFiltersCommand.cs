@@ -1,4 +1,5 @@
-﻿using DSharpPlus.SlashCommands;
+﻿using DSharpPlus.Entities;
+using DSharpPlus.SlashCommands;
 using JokeBot.DSharpPlus.App.Embeds;
 using JokeBot.DSharpPlus.App.Services;
 
@@ -9,6 +10,8 @@ public class ViewFiltersCommand : ApplicationCommandModule
     [SlashCommand("viewfilters", "Shows you the current joke filters for this server.")]
     public async Task ViewFiltersCommandAsync(InteractionContext context)
     {
+        await context.DeferAsync();
+
         try
         {
             var guildId = context.Guild.Id.ToString();
@@ -16,17 +19,19 @@ public class ViewFiltersCommand : ApplicationCommandModule
             var guildService = new GuildService(client);
             var guild = await guildService.Get(guildId);
             var viewFiltersEmbed = new ViewFiltersEmbed();
-            await context.CreateResponseAsync(viewFiltersEmbed.ViewFiltersEmbedBuilder
-            (
-                context, guild.Flag.Nsfw,
-                guild.Flag.Religious, guild.Flag.Political, guild.Flag.Racist,
-                guild.Flag.Sexist, guild.Flag.Explicit
-            ));
+            await context.FollowUpAsync(new DiscordFollowupMessageBuilder().AddEmbed(
+                viewFiltersEmbed.ViewFiltersEmbedBuilder
+                (
+                    context, guild.Flag.Nsfw,
+                    guild.Flag.Religious, guild.Flag.Political, guild.Flag.Racist,
+                    guild.Flag.Sexist, guild.Flag.Explicit
+                )));
         }
         catch (Exception e)
         {
             var errorEmbed = new ErrorEmbed();
-            await context.CreateResponseAsync(errorEmbed.NoFiltersEmbedBuilder());
+            await context.FollowUpAsync(
+                new DiscordFollowupMessageBuilder().AddEmbed(errorEmbed.NoFiltersEmbedBuilder()));
         }
     }
 }

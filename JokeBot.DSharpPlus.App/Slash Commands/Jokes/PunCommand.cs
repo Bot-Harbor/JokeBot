@@ -9,15 +9,18 @@ public class PunCommand : ApplicationCommandModule
     [SlashCommand("pun", "Gives you a pun.")]
     public async Task PunCommandAsync(InteractionContext context)
     {
+        await context.DeferAsync();
+
         try
         {
             var jokeEmbed = new JokeEmbed();
-            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Pun"));
+            await context.FollowUpAsync(
+                new DiscordFollowupMessageBuilder().AddEmbed(await jokeEmbed.JokeEmbedBuilder(context, "Pun")));
         }
         catch (Exception e)
         {
             var errorEmbed = new ErrorEmbed();
-            await context.CreateResponseAsync(errorEmbed.NoJokesEmbedBuilder());
+            await context.FollowUpAsync(new DiscordFollowupMessageBuilder().AddEmbed(errorEmbed.NoJokesEmbedBuilder()));
         }
     }
 }

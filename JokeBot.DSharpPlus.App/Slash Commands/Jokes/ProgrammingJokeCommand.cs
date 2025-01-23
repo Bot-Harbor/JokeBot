@@ -9,15 +9,18 @@ public class ProgrammingJokeCommand : ApplicationCommandModule
     [SlashCommand("programming", "Gives you a programming joke.")]
     public async Task ProgrammingJokeCommandAsync(InteractionContext context)
     {
+        await context.DeferAsync();
+
         try
         {
             var jokeEmbed = new JokeEmbed();
-            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Programming"));
+            await context.FollowUpAsync(
+                new DiscordFollowupMessageBuilder().AddEmbed(await jokeEmbed.JokeEmbedBuilder(context, "Programming")));
         }
         catch (Exception e)
         {
             var errorEmbed = new ErrorEmbed();
-            await context.CreateResponseAsync(errorEmbed.NoJokesEmbedBuilder());
+            await context.FollowUpAsync(new DiscordFollowupMessageBuilder().AddEmbed(errorEmbed.NoJokesEmbedBuilder()));
         }
     }
 }

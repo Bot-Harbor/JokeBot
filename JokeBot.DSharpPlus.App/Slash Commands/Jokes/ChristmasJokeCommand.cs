@@ -9,15 +9,17 @@ public class ChristmasJokeCommand : ApplicationCommandModule
     [SlashCommand("christmas", "Gives you a christmas joke.")]
     public async Task ChristmasJokeCommandAsync(InteractionContext context)
     {
+        await context.DeferAsync();
+        
         try
         {
             var jokeEmbed = new JokeEmbed();
-            await context.CreateResponseAsync(await jokeEmbed.JokeEmbedBuilder(context, "Christmas"));
+            await context.FollowUpAsync(new DiscordFollowupMessageBuilder().AddEmbed(await jokeEmbed.JokeEmbedBuilder(context, "Christmas")));
         }
         catch (Exception e)
         {
             var errorEmbed = new ErrorEmbed();
-            await context.CreateResponseAsync(errorEmbed.NoJokesEmbedBuilder());
+            await context.FollowUpAsync(new DiscordFollowupMessageBuilder().AddEmbed(errorEmbed.NoJokesEmbedBuilder()));
         }
     }
 }
