@@ -31,8 +31,6 @@ Want to invite JokeBot to your own Discord server?
 | `🎄 /christmas` | Gives you a christmas joke |
 | `️⚙️ /changefilters` | Allows you to change the joke blacklist filters for a server |
 | `📄 /viewfilters` | Shows you the current joke filters for the server |
-| `⌛ /scheduledailyjoke` | Allows you to schedule a time for the daily joke |
-| `📴 /turnoffdailyjoke` | Allows you to turn off the daily joke |
 
 ---
 
