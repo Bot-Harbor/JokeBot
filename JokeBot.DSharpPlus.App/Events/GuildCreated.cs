@@ -24,7 +24,6 @@ public class GuildCreated
                 Sexist = true,
                 Explicit = true
             },
-            DailyJokeIsActive = false
         };
         await guildService.Create(guildModel);
         Console.WriteLine($"Guild Created: {guildId}");

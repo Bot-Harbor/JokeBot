@@ -11,7 +11,7 @@ public class GuildDeleted
         var client = new HttpClient();
         var guildService = new GuildService(client);
         var guildId = args.Guild.Id.ToString();
-        await guildService.Delete(guildId);
+        await guildService.Delete(guildId, true);
         Console.WriteLine($"Guild Deleted: {guildId}");
     }
 }

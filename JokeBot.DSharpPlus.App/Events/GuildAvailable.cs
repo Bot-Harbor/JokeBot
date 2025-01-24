@@ -25,7 +25,6 @@ public class GuildAvailable
                     Sexist = true,
                     Explicit = true,
                 },
-                DailyJokeIsActive = false
             };
             await guildService.Create(guildModel);
         }
