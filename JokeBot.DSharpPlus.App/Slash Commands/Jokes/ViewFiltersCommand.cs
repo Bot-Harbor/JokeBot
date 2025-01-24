@@ -11,7 +11,6 @@ public class ViewFiltersCommand : ApplicationCommandModule
     public async Task ViewFiltersCommandAsync(InteractionContext context)
     {
         await context.DeferAsync();
-        Console.WriteLine(context.Guild.Id);
 
         try
         {
