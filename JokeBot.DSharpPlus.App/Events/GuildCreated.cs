@@ -26,6 +26,5 @@ public class GuildCreated
             },
         };
         await guildService.Create(guildModel);
-        Console.WriteLine($"Guild Created: {guildId}");
     }
 }

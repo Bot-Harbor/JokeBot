@@ -47,11 +47,11 @@ public class GuildService
         return new GuildModel();
     }
     
-    public async Task Delete(string id)
+    public async Task Delete(string id, bool hardDelete = false)
     {
         var apiKey = Http.ApiKey;
         var requestHeader = Http.RequestHeader;
         _httpClient.DefaultRequestHeaders.Add(requestHeader, apiKey);
-        await _httpClient.DeleteAsync($"https://jokebotapi.azurewebsites.net/guilds/{id}");
+        await _httpClient.DeleteAsync($"https://jokebotapi.azurewebsites.net/guilds/{id}?hardDelete={hardDelete}");
     }
 }

@@ -55,9 +55,9 @@ public class GuildController : ControllerBase
     
     [HttpDelete("{id}")]
     [ServiceFilter(typeof(GuildApiKeyFilter))]
-    public async Task<IActionResult> Delete(string id, [FromHeader(Name = "x-api-key")] [Required] string header)
+    public async Task<IActionResult> Delete(string id, [FromHeader(Name = "x-api-key")] [Required] string header, bool hardDelete = false)
     {
-        await _guildRepository.Delete(id);
+        await _guildRepository.Delete(id, hardDelete);
         return NoContent();
     }
 }

@@ -271,3 +271,4 @@ __pycache__/
 # tools/
 JokeBot.DSharpPlus.App/Secrets
 JokeBot.DSharpPlus.App/JokeBotDb.txt
+JokeBot.API/appsettings.json
